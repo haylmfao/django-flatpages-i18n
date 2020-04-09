@@ -2,12 +2,10 @@ from builtins import str as text
 from django.contrib.sites.models import Site
 from django.db import models
 from django.utils import translation
-from django.utils.six import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 from mptt.models import MPTTModel, TreeForeignKey
 
 
-@python_2_unicode_compatible
 class FlatPage_i18n(MPTTModel):
     WEIGHT = [(i, i) for i in range(-10, 10)]
 
@@ -47,7 +45,6 @@ class FlatPage_i18n(MPTTModel):
         return '/{}{}'.format(language, self.url)
 
 
-@python_2_unicode_compatible
 class MenuItem(MPTTModel):
     WEIGHT = [(i, i) for i in range(-10, 10)]
     TARGETS = (
